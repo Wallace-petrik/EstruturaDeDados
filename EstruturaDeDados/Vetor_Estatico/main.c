@@ -3,15 +3,15 @@
 #include <locale.h>
 
 int criarVetor(int **vet);
-void informarElementos(int vQtd, int *vet);
 void imprimirVetor(int vQtd, int *vet);
+void buscarElemento(int *vet,int vQtd);
+void informarElementos(int vQtd, int *vet);
 
 int main(){
 
     setlocale(LC_ALL,"");
 
     int opcao, qtd,*vet = NULL;
-
 
     do{
         system("cls");
@@ -41,7 +41,7 @@ int main(){
                 break;
             }
             case 4:{
-
+                buscarElemento(vet,qtd);
                 break;
             }
             case 5:{
@@ -105,7 +105,27 @@ void informarElementos(int vQtd, int *vet){
 
 void imprimirVetor(int vQtd, int *vet){
     for(int i = 0; i < vQtd; i++){
-        printf("Vet[%d] = %d",i,vet[i]);
+        printf("Vet[%d] = %d\n",i,vet[i]);
     }
     getch();
+}
+
+void buscarElemento(int *vet,int vQtd){
+    int elem = 0;
+    int achou = 0;
+    printf("Digite o elemento que deseja buscar: ");
+        scanf("%d",&elem);
+
+    for(int i = 0; i < vQtd; i++){
+        if(elem==vet[i]){
+            printf("Elemento encontrado vet [%d] = %d\n",i,vet[i]);
+            getch();
+            achou = 1;
+            break;
+        }
+    }
+    if(achou==0){
+        printf("Elemento não encontrado\n");
+        getch();
+    }
 }
