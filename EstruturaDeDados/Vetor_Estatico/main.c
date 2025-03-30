@@ -51,7 +51,7 @@ int main(){
                 break;
             }
             case 8:{
-
+                printf("\nAté logo !!!\n");
                 break;
             }
             default:{
