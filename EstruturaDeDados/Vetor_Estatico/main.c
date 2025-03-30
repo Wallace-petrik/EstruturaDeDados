@@ -4,6 +4,8 @@
 
 int criarVetor(int **vet);
 void informarElementos(int vQtd, int *vet);
+void imprimirVetor(int vQtd, int *vet);
+
 int main(){
 
     setlocale(LC_ALL,"");
@@ -35,7 +37,7 @@ int main(){
                 break;
             }
             case 3:{
-
+                imprimirVetor(qtd,vet);
                 break;
             }
             case 4:{
@@ -101,3 +103,9 @@ void informarElementos(int vQtd, int *vet){
     getch();
 }
 
+void imprimirVetor(int vQtd, int *vet){
+    for(int i = 0; i < vQtd; i++){
+        printf("Vet[%d] = %d",i,vet[i]);
+    }
+    getch();
+}
