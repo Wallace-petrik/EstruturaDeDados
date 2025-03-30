@@ -2,13 +2,13 @@
 #include <ctype.h>
 #include <locale.h>
 
-void criarVetor(int **vet);
+int criarVetor(int **vet);
 
 int main(){
 
     setlocale(LC_ALL,"");
 
-    int opcao,*vet = NULL;
+    int opcao, qtd,*vet = NULL;
 
 
     do{
@@ -27,7 +27,7 @@ int main(){
 
         switch(opcao){
             case 1:{
-                criarVetor(&vet);
+                qtd = criarVetor(&vet);
                 break;
             }
             case 2:{
@@ -67,7 +67,7 @@ int main(){
     return 0;
 }
 
-void criarVetor(int **vet){
+int criarVetor(int **vet){
     int qtd;
     do{
         printf("Qual o tamanho do Vetor: ");
@@ -86,6 +86,10 @@ void criarVetor(int **vet){
             exit(1);
         }else{
             printf("\nMemória alocada com sucesso !!!\n");
+            return qtd;
             getch();
         }
 }
+
+
+
