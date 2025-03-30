@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1743346164 source:c:\users\petrik\documents\meusrepositoios\estruturadedados\estruturadedados\vetor_estatico\main.c
+1743361017 source:c:\users\petrik\documents\meusrepositoios\estruturadedados\estruturadedados\vetor_estatico\main.c
 	<stdio.h>
+	<ctype.h>
 	<locale.h>
 

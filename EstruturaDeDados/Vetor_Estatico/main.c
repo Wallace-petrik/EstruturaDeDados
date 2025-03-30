@@ -1,11 +1,15 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <locale.h>
+
+void criarVetor(int **vet);
 
 int main(){
 
     setlocale(LC_ALL,"");
 
-    int opcao;
+    int opcao,*vet = NULL;
+
 
     do{
         system("cls");
@@ -23,7 +27,7 @@ int main(){
 
         switch(opcao){
             case 1:{
-
+                criarVetor(&vet);
                 break;
             }
             case 2:{
@@ -61,4 +65,27 @@ int main(){
         }
     }while(opcao != 8);
     return 0;
+}
+
+void criarVetor(int **vet){
+    int qtd;
+    do{
+        printf("Qual o tamanho do Vetor: ");
+            fflush(stdin);
+            scanf("%d",&qtd);
+        if(qtd<=0){
+            printf("A quantidade de elemento no vetor deve ser no mínimo 1 !!!\nDeve ser um número inteiro !!!\n");
+            printf("Tente novamente.\n");
+            getch();
+        }
+    }while(qtd<=0);
+
+        *vet = (int*) malloc(qtd * sizeof(int));
+        if(*vet==NULL){
+            printf("\nMemória insuficiente !!!\n");
+            exit(1);
+        }else{
+            printf("\nMemória alocada com sucesso !!!\n");
+            getch();
+        }
 }
