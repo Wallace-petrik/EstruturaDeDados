@@ -3,7 +3,7 @@
 #include <locale.h>
 
 int criarVetor(int **vet);
-
+void informarElementos(int vQtd, int *vet);
 int main(){
 
     setlocale(LC_ALL,"");
@@ -31,7 +31,7 @@ int main(){
                 break;
             }
             case 2:{
-
+                informarElementos(qtd,vet);
                 break;
             }
             case 3:{
@@ -86,10 +86,18 @@ int criarVetor(int **vet){
             exit(1);
         }else{
             printf("\nMemória alocada com sucesso !!!\n");
-            return qtd;
             getch();
+            return qtd;
+
         }
 }
 
+void informarElementos(int vQtd, int *vet){
 
+    for(int i = 0; i < vQtd; i++){
+        printf("Digite o %d° do vetor: ",i);
+            scanf("%d",&vet[i]);
+    }
+    getch();
+}
 
