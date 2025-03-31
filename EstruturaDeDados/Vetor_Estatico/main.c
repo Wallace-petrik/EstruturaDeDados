@@ -4,6 +4,7 @@
 
 int criarVetor(int **vet);
 int menorElemento(int *vet, int qtd);
+void ordenarVetor(int *vet, int qtd);
 void buscarElemento(int *vet,int vQtd);
 void imprimirVetor(int vQtd, int *vet);
 void buscarElemento(int *vet,int vQtd);
@@ -57,7 +58,9 @@ int main(){
                 break;
             }
             case 7:{
-
+                ordenarVetor(vet,qtd);
+                printf("Dados ordenados com sucesso!!! \n");
+                getch();
                 break;
             }
             case 8:{
@@ -153,4 +156,20 @@ int menorElemento(int *vet, int qtd){
         }
     }
     return menor;
+}
+
+void ordenarVetor(int *vet, int qtd){
+    int continua = 0;
+    do{
+        continua = 0;
+        for(int i = 0; i < qtd-1; i++){
+            if(vet[i]>vet[i+1]){
+                vet[i] = vet[i]+vet[i+1];
+                vet[i+1] = vet[i]-vet[i+1];
+                vet[i] = vet[i] - vet[i+1];
+                continua = 1;
+            }
+        }
+        qtd--;
+    }while(continua!=0);
 }
