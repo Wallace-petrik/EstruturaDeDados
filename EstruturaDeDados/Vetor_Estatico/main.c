@@ -3,6 +3,7 @@
 #include <locale.h>
 
 int criarVetor(int **vet);
+void buscarElemento(int *vet,int vQtd);
 void imprimirVetor(int vQtd, int *vet);
 void buscarElemento(int *vet,int vQtd);
 void informarElementos(int vQtd, int *vet);
@@ -45,7 +46,8 @@ int main(){
                 break;
             }
             case 5:{
-
+                printf("O maior elemento do vetor é %d",maiorElemento(vet,qtd));
+                getch();
                 break;
             }
             case 6:{
@@ -128,4 +130,15 @@ void buscarElemento(int *vet,int vQtd){
         printf("Elemento não encontrado\n");
         getch();
     }
+}
+
+int maiorElemento(int *vet, int vQtd){
+    int maior = vet[0];
+
+    for(int i = 1; i < vQtd; i++){
+        if(vet[i]>maior){
+            maior = vet[i];
+        }
+    }
+    return maior;
 }
