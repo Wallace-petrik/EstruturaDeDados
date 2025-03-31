@@ -3,6 +3,7 @@
 #include <locale.h>
 
 int criarVetor(int **vet);
+int menorElemento(int *vet, int qtd);
 void buscarElemento(int *vet,int vQtd);
 void imprimirVetor(int vQtd, int *vet);
 void buscarElemento(int *vet,int vQtd);
@@ -51,7 +52,8 @@ int main(){
                 break;
             }
             case 6:{
-
+                printf("O menor elemento do vetor é %d",menorElemento(vet,qtd));
+                getch();
                 break;
             }
             case 7:{
@@ -141,4 +143,14 @@ int maiorElemento(int *vet, int vQtd){
         }
     }
     return maior;
+}
+
+int menorElemento(int *vet, int qtd){
+    int menor = vet[0];
+    for(int i = 1; i < qtd; i++){
+        if(vet[i]<menor){
+            menor=vet[i];
+        }
+    }
+    return menor;
 }
