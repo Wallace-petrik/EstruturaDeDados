@@ -2,6 +2,7 @@
 #include <locale.h>
 
 void menu();
+void sair();
 
 int main(){
 
@@ -47,8 +48,7 @@ void menu(){
 
                 break;}
                 case 7:{
-
-
+                    sair();
                 break;}
                 default:{
                     printf("\nOpção invalida!!!\n");
@@ -58,4 +58,8 @@ void menu(){
         }while(opcao!=7);
 }
 
+void sair(){
+    printf("\n\nAté logo !!!\n");
+    getch();
+}
 
