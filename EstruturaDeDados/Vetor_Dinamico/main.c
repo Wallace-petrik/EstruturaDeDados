@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <locale.h>
 
+#define FATOR_DE_ALOCACAO 2
+
 void menu();
 void sair();
+void imprimir(int **vet);
+void incluirElemento(int **vet, int vElemento);
+
+int qtd = 0;
+int max = 0;
 
 int main(){
 
@@ -16,6 +23,9 @@ int main(){
 void menu(){
 
         int opcao;
+        int elemento = 0 ;
+        int *vetor;
+
         do{
         system("cls");
 		printf("\n(1) Incluir numero");
@@ -30,10 +40,12 @@ void menu(){
 
             switch(opcao){
                 case 1:{
-
+                    printf("Digite o valor de um número inteiro: ");
+                        scanf("%d",&elemento);
+                    incluirElemento(&vetor,elemento);
                 break;}
                 case 2:{
-
+                    imprimir(&vetor);
                 break;}
                 case 3:{
 
@@ -60,6 +72,37 @@ void menu(){
 
 void sair(){
     printf("\n\nAté logo !!!\n");
+    getch();
+}
+
+void incluirElemento(int **vet, int vElemento){
+    if(*vet==NULL){
+        *vet = (int*) malloc(FATOR_DE_ALOCACAO * sizeof(int));
+        if(*vet == NULL){
+            printf("\nNão foi possivel alocar memoria!!!\n");
+            getch();
+            exit(1);
+        }
+        max = FATOR_DE_ALOCACAO;
+    }
+    if(qtd==max){
+        *vet = (int*) realloc(*vet, (max*FATOR_DE_ALOCACAO)*sizeof(int));
+        if(*vet == NULL){
+            printf("\nNão foi possivel realocar!!!\n");
+            getch();
+            exit(1);
+        }
+        max *= FATOR_DE_ALOCACAO;
+    }
+    *vet[qtd] = vElemento;
+    qtd++;
+}
+
+void imprimir(int **vet){
+    printf("\n");
+    for(int i=0;i<qtd;i++){
+        printf("Vet[%d] = %d",i,*vet[i]);
+    }
     getch();
 }
 
