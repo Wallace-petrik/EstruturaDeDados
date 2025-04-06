@@ -24,7 +24,7 @@ void menu(){
 
         int opcao;
         int elemento = 0 ;
-        int *vetor;
+        int *vetor = NULL;
 
         do{
         system("cls");
@@ -94,14 +94,14 @@ void incluirElemento(int **vet, int vElemento){
         }
         max *= FATOR_DE_ALOCACAO;
     }
-    *vet[qtd] = vElemento;
+    (*vet)[qtd] = vElemento;
     qtd++;
 }
 
 void imprimir(int **vet){
     printf("\n");
     for(int i=0;i<qtd;i++){
-        printf("Vet[%d] = %d",i,*vet[i]);
+        printf("Vet[%d] = %d\n",i,(*vet)[i]);
     }
     getch();
 }
