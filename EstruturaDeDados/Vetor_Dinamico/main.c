@@ -6,6 +6,7 @@
 void menu();
 void sair();
 void imprimir(int **vet);
+int buscarElemento(int *vet, int elemento);
 void incluirElemento(int **vet, int vElemento);
 
 int qtd = 0;
@@ -48,7 +49,15 @@ void menu(){
                     imprimir(&vetor);
                 break;}
                 case 3:{
-
+                    printf("Digite o elemento de quer buscar: ");
+                        scanf("%d",&elemento);
+                    elemento = buscarElemento(vetor,elemento);
+                    if(elemento<0){
+                        printf("\nElemento não encontrado !!!");
+                    }else{
+                        printf("Elemento encontrado\nPosição: %d\nValor: %d",elemento,vetor[elemento]);
+                    }
+                    getch();
                 break;}
                 case 4:{
 
@@ -106,3 +115,16 @@ void imprimir(int **vet){
     getch();
 }
 
+int buscarElemento(int *vet, int elemento){
+
+    if(vet!=NULL){
+        for(int i = 0; i < qtd; i++){
+            if(vet[i]==elemento){
+                return i;
+                break;
+            }
+        }
+    }else{
+        return -1;
+    }
+}
