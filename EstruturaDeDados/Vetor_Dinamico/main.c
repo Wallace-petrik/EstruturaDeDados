@@ -7,6 +7,8 @@ void menu();
 void sair();
 void imprimir(int **vet);
 int maiorElemento(int *vet);
+int menorElemento(int *vet);
+
 int buscarElemento(int *vet, int elemento);
 void incluirElemento(int **vet, int vElemento);
 
@@ -70,7 +72,13 @@ void menu(){
                     getch();
                 break;}
                 case 5:{
-
+                    elemento = menorElemento(vetor);
+                    if(elemento!=-1){
+                        printf("\nMenor elemento: %d",elemento);
+                    }else{
+                        printf("\nVetor está vazio!!!");
+                    }
+                    getch();
                 break;}
                 case 6:{
 
@@ -150,5 +158,16 @@ int maiorElemento(int *vet){
     }
 }
 
-
-
+int menorElemento(int *vet){
+    if(vet!=NULL){
+        int menor = vet[0];
+        for(int i = 1; i < qtd; i++){
+            if(menor>vet[i]){
+                menor=vet[i];
+            }
+        }
+        return menor;
+    }else{
+        return -1;
+    }
+}
