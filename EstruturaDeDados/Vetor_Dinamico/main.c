@@ -8,7 +8,7 @@ void sair();
 void imprimir(int **vet);
 int maiorElemento(int *vet);
 int menorElemento(int *vet);
-
+void bubbleSort(int *vet, int fim);
 int buscarElemento(int *vet, int elemento);
 void incluirElemento(int **vet, int vElemento);
 
@@ -81,7 +81,8 @@ void menu(){
                     getch();
                 break;}
                 case 6:{
-
+                    bubbleSort(vetor,qtd);
+                    imprimir(vetor);
                 break;}
                 case 7:{
                     sair();
@@ -170,4 +171,20 @@ int menorElemento(int *vet){
     }else{
         return -1;
     }
+}
+
+void bubbleSort(int *vet, int fim){
+    int continua, aux;
+    do{
+        continua = 0;
+        for(int i = 0; i < fim-1; i++){
+            if(vet[i]>vet[i+1]){
+                aux = vet[i];
+                vet[i+1]=vet[i];
+                vet[i]=aux;
+                continua = 1;
+            }
+        }
+        fim--;
+    }while(continua!=0);
 }
