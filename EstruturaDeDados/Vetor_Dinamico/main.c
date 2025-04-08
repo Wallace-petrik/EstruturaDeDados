@@ -82,7 +82,7 @@ void menu(){
                 break;}
                 case 6:{
                     bubbleSort(vetor,qtd);
-                    imprimir(vetor);
+                    imprimir(&vetor);
                 break;}
                 case 7:{
                     sair();
@@ -179,7 +179,7 @@ void bubbleSort(int *vet, int fim){
         continua = 0;
         for(int i = 0; i < fim-1; i++){
             if(vet[i]>vet[i+1]){
-                aux = vet[i];
+                aux = vet[i+1];
                 vet[i+1]=vet[i];
                 vet[i]=aux;
                 continua = 1;
