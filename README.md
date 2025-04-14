@@ -18,4 +18,3 @@
 ###  Obs 🚩
 * O diretório EntendendoAlgoritmos contem os exercícios no livro Entendendo Algoritmos: Um Guia Ilustrado Para Programadores e Outros Curiosos.
 
-### [Acesse meu perfil no portfólio](https://devpetrik.com.br/)  | [Acesse meu perfil no Linkedin](https://www.linkedin.com/in/wallacepetrik/) 
